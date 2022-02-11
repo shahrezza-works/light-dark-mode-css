@@ -22,84 +22,146 @@ input, textarea, button {
 :root {
   scroll-behavior: smooth;
   scroll-padding-top: 2rem;
+
+  --text-light: hsl(255, 36%, 17%);
+  --accent1-light: hsl(175, 100%, 31%);
+  --accent2-light: hsl(21, 84%, 56%);
+  --accent3-light: hsl(40, 89%, 65%);
+  --bkg1-light: hsl(0, 0%, 100%);
+  --bkg2-light: hsl(26, 37%, 96%);
+  --shadow-light: 20px 20px 50px hsl(255, 36%, 17%, .35),
+  -30px -30px 50px hsl(26, 37%, 96%, .15);
+
+  --text-dark: hsl(217, 54.2%, 88%);
+  --accent1-dark: hsl(175, 100%, 31%);
+  --accent2-dark: hsl(21, 84%, 56%);
+  --accent3-dark: hsl(40, 89%, 65%);
+  --bkg1-dark: hsl(218, 15.4%, 10.2%);
+  --bkg2-dark: hsl(218, 14.7%, 18.7%);
+  --shadow-dark: 20px 20px 50px hsl(255, 36%, 17%, .35),
+  -30px -30px 50px hsl(26, 37%, 96%, .15);
+}
+
+@media(prefers-color-scheme: dark){
+  :root {
+    --text: var(--text-dark);
+    --accent1: var(--accent1-dark);
+    --accent2: var(--accent2-dark);
+    --accent3: var(--accent3-dark);
+    --bkg1: var(--bkg1-dark);
+    --bkg2: var(--bkg2-dark);
+    --shadow: var(--shadow-dark);
+  }
+}
+
+@media(prefers-color-scheme: light){
+  :root {
+    --text: var(--text-light);
+    --accent1: var(--accent1-light);
+    --accent2: var(--accent2-light);
+    --accent3: var(--accent3-light);
+    --bkg1: var(--bkg1-light);
+    --bkg2: var(--bkg2-light);
+    --shadow: var(--shadow-light);
+  }
+}
+
+[color-scheme="dark"]{
+  --text: var(--text-dark);
+  --accent1: var(--accent1-dark);
+  --accent2: var(--accent2-dark);
+  --accent3: var(--accent3-dark);
+  --bkg1: var(--bkg1-dark);
+  --bkg2: var(--bkg2-dark);
+  --shadow: var(--shadow-dark);
+}
+
+[color-scheme="light"] {
+  --text: var(--text-light);
+  --accent1: var(--accent1-light);
+  --accent2: var(--accent2-light);
+  --accent3: var(--accent3-light);
+  --bkg1: var(--bkg1-light);
+  --bkg2: var(--bkg2-light);
+  --shadow: var(--shadow-light);
 }
 
 /* utility classes */
 /* text color */
 .text {
-  color: hsl(255, 36%, 17%);
+  color: var(--text);
 }
 .accent1 {
-  color: hsl(175, 100%, 31%);
-  fill: hsl(175, 100%, 31%);
+  color: var(--accent1);
+  fill: var(--accent1);
 }
 
 .accent1--stroke {
-  stroke: hsl(175, 100%, 31%);
+  stroke: var(--accent1);
 }
 
 .accent2 {
-  color: hsl(21, 84%, 56%);
-  fill: hsl(21, 84%, 56%);
+  color: var(--accent2);
+  fill: var(--accent2);
 }
 .accent3 {
-  color: hsl(40, 89%, 65%);
-  fill: hsl(40, 89%, 65%);
+  color: var(--accent3);
+  fill: var(--accent3);
 }
 .bkg1 {
-  color: hsl(0, 0%, 100%);
+  color: var(--bkg1);
 }
 .bkg2 {
-  color: hsl(26, 37%, 96%);
+  color: var(--bkg2);
 }
 
 .bkg2--stroke {
-  stroke: hsl(26, 37%, 96%);
+  stroke: var(--bkg2);
 }
 
 .bkg2--fill {
-  fill: hsl(26, 37%, 96%);
+  fill: var(--bkg2);
 }
 
 /* link color */
 .text-link {
-  color: hsl(255, 36%, 17%);
+  color: var(--text);
 }
 .accent1-link {
-  color: hsl(175, 100%, 31%);
+  color: var(--accent1);
 }
 .accent2-link {
-  color: hsl(21, 84%, 56%);
+  color: var(--accent2);
 }
 .accent3-link {
-  color: hsl(40, 89%, 65%);
+  color: var(--accent3);
 }
 .bkg1-link {
-  color: hsl(0, 0%, 100%);
+  color: var(--bkg1);
 }
 .bkg2-link {
-  color: hsl(26, 37%, 96%);
+  color: var(--bkg2);
 }
 
 /* background color */
 
 .text-bg {
-  background-color: hsl(255, 36%, 17%);
+  background-color: var(--text);
 }
 .accent1-bg {
-  background-color: hsl(175, 100%, 31%);
+  background-color: var(--accent1);
 }
 .accent2-bg {
-  background-color: hsl(21, 84%, 56%);
+  background-color: var(--accent2);
 }
 .accent3-bg {
-  background-color: hsl(40, 89%, 65%);
+  background-color: var(--accent3);
 }
 .bkg1-bg {
-  background-color: hsl(0, 0%, 100%);
+  background-color: var(--bkg1);
 }
 .bkg2-bg {
-  background-color: hsl(26, 37%, 96%);
+  background-color: var(--bkg2);
 }
 
 /* text sizing */
@@ -118,7 +180,7 @@ input, textarea, button {
   align-items: center;
   gap: .5rem;
   max-width: max-content;
-  box-shadow: 4px 4px hsl(255, 36%, 17%);
+  box-shadow: 4px 4px var(--text);
   text-decoration: none;
   transition: all 200ms cubic-bezier(1, -0.04, 0, 1.21);
 }
@@ -146,14 +208,30 @@ nav {
 
 .nav-logo {
   width: clamp(160px, 69.2307695px + 23.076923vw, 300px);
-  background-color: hsl(0, 0%, 100%);
+  background-color: var(--bkg1);
   position: relative;
+}
+
+.theme {
+  background-color: var(--text);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid var(--bkg1);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.theme:is(:hover, :focus){
+  background-color: var(--accent1);
+  opacity: 0.8;
 }
 
 body {
   font-family: 'Inter', sans-serif;
-  color: hsl(255, 36%, 17%);
-  background-color: hsl(0, 0%, 100%);
+  color: var(--text);
+  background-color: var(--bkg1);
 }
 
 main {
@@ -258,8 +336,7 @@ header {
 .meet-img__teacher {
   width: 100%;
   grid-area: 1/2/3/4;
-  box-shadow: 20px 20px 50px hsl(255, 36%, 17%, .35),
-  -30px -30px 50px hsl(26, 37%, 96%, .15);
+  box-shadow: var(--shadow);
 }
 
 .btn-connect {
@@ -310,7 +387,7 @@ header {
   grid-gap: .5rem;
   padding: 3rem 2rem 2rem;
   border-radius: 15px;
-  border-bottom: 5px solid hsl(40, 89%, 65%);
+  border-bottom: 5px solid var(--accent3);
   position: relative;
 }
 
@@ -321,7 +398,7 @@ header {
   transform: translate(-50%, -50%);
   padding: 1rem;
   border-radius: 50%;
-  border: 8px solid hsl(0, 0%, 100%);
+  border: 8px solid var(--bkg1);
   line-height: .75;
   font-size: clamp(1.3rem, 0.47272731rem + 3.781818vw, 2.6rem);
   width: clamp(4rem, 2.72727269rem + 5.818182vw, 6rem);
@@ -330,7 +407,7 @@ header {
 
 .options-card {
   max-width: 360px;
-  border-bottom: 5px solid hsl(21, 84%, 56%);
+  border-bottom: 5px solid var(--accent2);
   grid-template-rows: 1rem 1fr;
   text-align: center;
 }
@@ -353,7 +430,7 @@ header {
 .connect-form {
   max-width: 500px;
   position: relative;
-  border: 12px solid hsl(0, 0%, 100%);
+  border: 12px solid var(--bkg1);
   border-radius: 10px;
   padding: 1.5rem 3rem;
   margin: -6rem auto 0;
@@ -368,15 +445,15 @@ header {
 
 [type="email"]{
   padding: .5rem;
-  border: 3px solid hsl(26, 37%, 96%);
+  border: 3px solid var(--bkg2);
 }
 
 [type="submit"]{
   padding: .5rem 1rem;
-  border: 3px solid hsl(26, 37%, 96%);
+  border: 3px solid var(--bkg2);
   border-radius: 0;
-  color: hsl(255, 36%, 17%);
-  background-color: hsl(26, 37%, 96%);
+  color: var(--text);
+  background-color: var(--bkg2);
   margin-left: -5px;
   cursor: pointer;
 }
@@ -396,7 +473,7 @@ footer div {
 
 .footer-icons:hover {
   transform: rotate(15deg) scale(1.1);
-  filter: drop-shadow(1px 1px 1px hsl(255, 36%, 17%));
+  filter: drop-shadow(1px 1px 1px var(--text));
 }
 
 
@@ -421,7 +498,7 @@ footer div {
   [type="submit"]{
     margin: 0;
     width: 100%;
-    background-color: hsl(26, 37%, 96%);
+    background-color: var(--bkg2);
   }
 }
 
